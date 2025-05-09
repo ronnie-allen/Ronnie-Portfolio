@@ -3,7 +3,7 @@ import { Projects } from "./sections/Projects";
 import { Blog } from "./sections/Blog";
 import { Contact } from "./sections/Contact";
 import { Footer } from "./sections/Footer";
-import { TechCarousel } from "./sections/TechCarousel";
+import {TechCarousel} from "./sections/TechCarousel";
 import Navbar from "./sections/Navbar";
 
 function App() {
