@@ -1,6 +1,3 @@
-// TechMarquee.jsx
-import React from "react";
-
 const techStack = [
   { name: "React", logo: "https://skillicons.dev/icons?i=react" },
   { name: "TypeScript", logo: "https://skillicons.dev/icons?i=ts" },

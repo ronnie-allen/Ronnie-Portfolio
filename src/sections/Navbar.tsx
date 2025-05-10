@@ -1,5 +1,4 @@
-// src/sections/Navbar.tsx
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaGithub } from "react-icons/fa"; // Import GitHub icon
 import { GiHamburgerMenu } from "react-icons/gi"; // Import hamburger menu icon for mobile
 
