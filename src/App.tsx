@@ -28,11 +28,11 @@ function App() {
           <TechCarousel />
         </div>
 
-        <div className="z-10 relative mt-10 md:mt-20">
+        <div className="z-10 relative mt-10 md:mt-20" id="about">
           <About />
         </div>
 
-        <div className="z-10 relative mt-10 md:mt-20">
+        <div className="z-10 relative mt-10 md:mt-20" id="projects">
           <Projects />
         </div>
 
@@ -40,7 +40,7 @@ function App() {
           <Blog />
         </div>
 
-        <div className="z-10 relative mt-10 md:mt-20">
+        <div className="z-10 relative mt-10 md:mt-20" id="contact">
           <Contact />
         </div>
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { FaGithub } from "react-icons/fa"; // Import GitHub icon
-import { GiHamburgerMenu } from "react-icons/gi"; // Import hamburger menu icon for mobile
+import { FaGithub } from "react-icons/fa"; 
+import { GiHamburgerMenu } from "react-icons/gi"; 
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,16 +14,16 @@ const Navbar = () => {
         Ronnie A Jeffrey
       </div>
 
-      {/* Navbar content */}
+      {/* Navbar content for desktop */}
       <div className="space-x-6 mr-8 hidden md:flex items-center">
         {/* Navbar links */}
-        <a href="#about" className="text-white hover:text-red-400">About</a>
-        <a href="#projects" className="text-white hover:text-red-400">Projects</a>
-        <a href="#contact" className="text-white hover:text-red-400">Contact</a>
+        <a href="#about" className="text-white hover:text-red-400 transition duration-300">About</a>
+        <a href="#projects" className="text-white hover:text-red-400 transition duration-300">Projects</a>
+        <a href="#contact" className="text-white hover:text-red-400 transition duration-300">Contact</a>
 
         {/* GitHub Icon */}
         <div className="text-white hover:text-red-400">
-          <a href="https://github.com/ronnieaj" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/ronnie-allen" target="_blank" rel="noopener noreferrer">
             <FaGithub size={30} />
           </a>
         </div>
@@ -37,13 +37,13 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="absolute top-0 left-0 right-0 bg-transparent backdrop-blur-lg p-6 md:hidden flex flex-col items-center space-y-4 mt-16">
-          <a href="#about" className="text-white hover:text-red-400">About</a>
-          <a href="#projects" className="text-white hover:text-red-400">Projects</a>
-          <a href="#contact" className="text-white hover:text-red-400">Contact</a>
+          <a href="#about" className="text-white hover:text-red-400 transition duration-300" onClick={() => setIsMenuOpen(false)}>About</a>
+          <a href="#projects" className="text-white hover:text-red-400 transition duration-300" onClick={() => setIsMenuOpen(false)}>Projects</a>
+          <a href="#contact" className="text-white hover:text-red-400 transition duration-300" onClick={() => setIsMenuOpen(false)}>Contact</a>
 
           {/* GitHub Icon */}
           <div className="text-white hover:text-red-400">
-            <a href="https://github.com/ronnieaj" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/ronnie-allen" target="_blank" rel="noopener noreferrer">
               <FaGithub size={30} />
             </a>
           </div>
