@@ -4,6 +4,7 @@ import { Blog } from "./sections/Blog";
 import { Contact } from "./sections/Contact";
 import { Footer } from "./sections/Footer";
 import {TechCarousel} from "./sections/TechCarousel";
+import { About } from "./sections/About";
 import Navbar from "./sections/Navbar";
 
 function App() {
@@ -25,6 +26,10 @@ function App() {
         
         <div className="z-10 relative mt-10 md:mt-20">
           <TechCarousel />
+        </div>
+
+        <div className="z-10 relative mt-10 md:mt-20">
+          <About />
         </div>
 
         <div className="z-10 relative mt-10 md:mt-20">
