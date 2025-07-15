@@ -11,6 +11,7 @@ import {
   FaPhone,
   FaMedium,
 } from "react-icons/fa";
+import CV from "../assets/RonnieAJeffrey_CV.pdf";
 
 export const Contact = () => {
   const { register, handleSubmit } = useForm();
@@ -22,12 +23,12 @@ export const Contact = () => {
       <div className="absolute w-72 h-72 bg-[#004FC7] rounded-full mix-blend-lighten blur-3xl opacity-20 top-20 left-10 animate-[float1_6s_ease-in-out_infinite]"></div>
       <div className="absolute w-72 h-72 bg-red-600 rounded-full mix-blend-lighten blur-3xl opacity-20 top-1/2 right-10 animate-[float2_8s_ease-in-out_infinite]"></div>
       <div className="absolute w-72 h-72 bg-green-500 rounded-full mix-blend-lighten blur-3xl opacity-20 bottom-10 left-1/2 animate-[float3_7s_ease-in-out_infinite]"></div>
-  
+
       {/* Heading */}
       <h2 className="text-3xl sm:text-4xl font-bold text-center text-red-500 mb-12 z-10 relative">
         Contact Me
       </h2>
-  
+
       {/* Responsive Container */}
       <div className="z-10 relative flex flex-col lg:flex-row gap-10 max-w-6xl mx-auto bg-white/5 backdrop-blur-xl rounded-2xl p-6 sm:p-10 border border-white/10 shadow-lg">
         {/* Contact Form */}
@@ -54,7 +55,7 @@ export const Contact = () => {
             Send Message
           </button>
         </form>
-  
+
         {/* Contact Info */}
         <div className="flex flex-col justify-center w-full lg:w-1/2">
           <h3 className="text-2xl font-semibold mb-4 text-white">
@@ -72,7 +73,27 @@ export const Contact = () => {
           >
             <FaPhone className="text-green-400" /> +91 99528 60468
           </a>
-  
+
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
+            {/* Hire Me */}
+            <a
+              href="mailto:ronnieallen2005@gmail.com?subject=Hiring%20Inquiry&body=Hi%20Ronnie,%0D%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project%20opportunity."
+              className="bg-red-600 hover:bg-red-700 transition text-white  px-6 py-3 rounded-lg font-semibold shadow-md"
+            >
+              Hire Me
+            </a>
+
+            {/* Download CV */}
+            <a
+              href={CV}
+              download
+              className="bg-red-600 hover:bg-red-700 transition text-white  px-6 py-3 rounded-lg font-semibold shadow-md"
+            >
+              Download CV
+            </a>
+          </div>
+
           <h4 className="text-2xl font-medium mb-4 text-white">Follow me</h4>
           <div className="flex gap-5 flex-wrap text-2xl text-gray-400 ">
             <a
@@ -134,12 +155,11 @@ export const Contact = () => {
           </div>
         </div>
       </div>
-  
+
       {/* Floating animations */}
-      <style >{`
+      <style>{`
         @keyframes float1 {
-          0%,
-          100% {
+          0%, 100% {
             transform: translateY(0px) translateX(0px);
           }
           50% {
@@ -147,8 +167,7 @@ export const Contact = () => {
           }
         }
         @keyframes float2 {
-          0%,
-          100% {
+          0%, 100% {
             transform: translateY(0px) translateX(0px);
           }
           50% {
@@ -156,8 +175,7 @@ export const Contact = () => {
           }
         }
         @keyframes float3 {
-          0%,
-          100% {
+          0%, 100% {
             transform: translateY(0px) translateX(0px);
           }
           50% {
@@ -167,5 +185,4 @@ export const Contact = () => {
       `}</style>
     </div>
   );
-  
 };
