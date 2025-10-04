@@ -1,4 +1,7 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
 import {
   FaLinkedin,
   FaGithub,
@@ -14,8 +17,38 @@ import {
 import CV from "../assets/RonnieAJeffrey_CV.pdf";
 
 export const Contact = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data: any) => console.log(data);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data: any) => {
+    setIsSubmitting(true);
+    try {
+      await emailjs.send(
+        "service_vrif9mm", // Replace with your EmailJS service ID
+        "template_g5znja3", // Replace with your EmailJS template ID
+        {
+          from_name: data.name,
+          from_email: data.email,
+          message: data.message,
+          to_name: "Ronnie A Jeffrey",
+          to_email: "ronnieallen2005@gmail.com",
+        },
+        "z_jiKb_kmS8sjJp6c" // Replace with your EmailJS public key
+      );
+      toast.success("Message sent successfully!");
+      reset();
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="relative overflow-hidden text-white py-20 px-4 sm:px-6">
@@ -36,23 +69,59 @@ export const Contact = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col gap-5 w-full lg:w-1/2"
         >
-          <input
-            {...register("name")}
-            placeholder="Your Name"
-            className="bg-white/10 p-4 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-600"
-          />
-          <input
-            {...register("email")}
-            placeholder="Your Email"
-            className="bg-white/10 p-4 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-600"
-          />
-          <textarea
-            {...register("message")}
-            placeholder="Your Message"
-            className="bg-white/10 p-4 rounded-lg h-32 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-600"
-          />
-          <button className="bg-red-600 hover:bg-red-700 transition p-4 rounded-lg font-semibold shadow-md">
-            Send Message
+          <div>
+            <input
+              {...register("name", { required: "Name is required" })}
+              placeholder="Your Name"
+              className={`bg-white/10 p-4 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 ${
+                errors.name ? "focus:ring-yellow-400" : "focus:ring-red-600"
+              }`}
+            />
+            {errors.name && (
+              <p className="text-yellow-400 text-sm mt-1">{String(errors.name.message)}</p>
+            )}
+          </div>
+
+          <div>
+            <input
+              {...register("email", {
+                required: "Email is required",
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "Invalid email format",
+                },
+              })}
+              placeholder="Your Email"
+              className={`bg-white/10 p-4 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 ${
+                errors.email ? "focus:ring-yellow-400" : "focus:ring-red-600"
+              }`}
+            />
+            {errors.email && (
+              <p className="text-yellow-400 text-sm mt-1">{String(errors.email.message)}</p>
+            )}
+          </div>
+
+          <div>
+            <textarea
+              {...register("message", {
+                required: "Message is required",
+                minLength: { value: 10, message: "Message must be at least 10 characters" },
+              })}
+              placeholder="Your Message"
+              className={`bg-white/10 p-4 rounded-lg h-32 text-white placeholder-gray-400 focus:outline-none focus:ring-2 ${
+                errors.message ? "focus:ring-yellow-400" : "focus:ring-red-600"
+              }`}
+            />
+            {errors.message && (
+              <p className="text-yellow-400 text-sm mt-1">{String(errors.message.message)}</p>
+            )}
+          </div>
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="bg-red-600 hover:bg-red-700 disabled:bg-red-400 disabled:cursor-not-allowed transition p-4 rounded-lg font-semibold shadow-md"
+          >
+            {isSubmitting ? "Sending..." : "Send Message"}
           </button>
         </form>
 
