@@ -3,12 +3,15 @@ import { Projects } from "./sections/Projects";
 import { Blog } from "./sections/Blog";
 import { Contact } from "./sections/Contact";
 import { Footer } from "./sections/Footer";
-import {TechCarousel} from "./sections/TechCarousel";
+import { TechCarousel } from "./sections/TechCarousel";
 import { About } from "./sections/About";
 import { Experience } from "./sections/Experience";
 import Navbar from "./sections/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ContentProvider } from "./context/ContentContext";
+import { CMS } from "./pages/CMS";
 
-function App() {
+function Portfolio() {
   return (
     <div className="font-inter">
       {/* Main Container */}
@@ -24,7 +27,7 @@ function App() {
         <div className="z-10 relative mt-20 md:mt-0"> {/* Adjust margin-top for mobile */}
           <Hero />
         </div>
-        
+
         <div className="z-10 relative mt-10 md:mt-20">
           <TechCarousel />
         </div>
@@ -54,6 +57,19 @@ function App() {
         </div>
       </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <ContentProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Portfolio />} />
+          <Route path="/cms" element={<CMS />} />
+        </Routes>
+      </Router>
+    </ContentProvider>
   );
 }
 

@@ -1,26 +1,8 @@
+import { useContent } from "../context/ContentContext";
+
 export const Blog = () => {
-  const blogPosts = [
-    {
-      title: "Why Every Developer Should Learn Markdown (And Why Many Still Struggle With It)",
-      url: "https://medium.com/@ronnieallen2005/why-every-developer-should-learn-markdown-and-why-many-still-struggle-with-it-fac9c8e91ccc",
-      image: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*5XvsEOBDs9sKu17k3mX0rg.gif",
-    },
-    {
-      title: "The Rise of AI Agents — How They Work and What’s Next",
-      url: "https://medium.com/@ronnieallen2005/the-rise-of-ai-agents-how-they-work-and-whats-next-8cba469abfd0",
-      image: "https://miro.medium.com/v2/resize:fit:720/format:webp/0*G2QEzYpAoIAyRyRw",
-    },
-    {
-      title: "Can O3 Mini Compete? A Brutally Honest Look at DeepSeek R1’s Power",
-      url: "https://medium.com/@ronnieallen2005/is-deepseek-r1-the-ultimate-reasoning-machine-over-o3-mini-e740e8a92bcb",
-      image: "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*cWNER1Bf85H2nrvNVJoLcg.png",
-    },
-    {
-      title: "A Beginner’s Guide to Installing and Exploring ORB-SLAM3: Unlocking the Power of Real-Time Localization & Mapping",
-      url: "https://medium.com/@ronnieallen2005/a-beginners-guide-to-installing-and-exploring-orb-slam3-0ef6b0f7e3fc",
-      image: "https://miro.medium.com/v2/resize:fit:720/format:webp/1*qJMDatUhkbIh4LSuKCUsyg.png",
-    },
-  ];
+  const { content } = useContent();
+  const { blogs } = content;
 
   return (
     <div className=" text-white py-16 px-4">
@@ -34,7 +16,7 @@ export const Blog = () => {
 
       {/* Blog Cards */}
       <div className="grid md:grid-cols-4 gap-8">
-        {blogPosts.map((post, index) => (
+        {blogs.map((post, index) => (
           <a
             key={index}
             href={post.url}

@@ -1,50 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-
-interface Skill {
-  name: string;
-  logo: string;
-  proficiency: number;
-}
-
-const skills = [
-  { name: "HTML", logo: "https://skillicons.dev/icons?i=html", category: "Frontend", proficiency: 90 },
-  { name: "CSS", logo: "https://skillicons.dev/icons?i=css", category: "Frontend", proficiency: 85 },
-  { name: "JavaScript", logo: "https://skillicons.dev/icons?i=js", category: "Frontend", proficiency: 80 },
-  { name: "TypeScript", logo: "https://skillicons.dev/icons?i=ts", category: "Frontend", proficiency: 75 },
-  { name: "React", logo: "https://skillicons.dev/icons?i=react", category: "Frontend", proficiency: 85 },
-  { name: "Tailwind", logo: "https://skillicons.dev/icons?i=tailwind", category: "Frontend", proficiency: 80 },
-  { name: "Bootstrap", logo: "https://skillicons.dev/icons?i=bootstrap", category: "Frontend", proficiency: 70 },
-  { name: "Node.js", logo: "https://skillicons.dev/icons?i=nodejs", category: "Backend", proficiency: 75 },
-  { name: "Python", logo: "https://skillicons.dev/icons?i=python", category: "Backend", proficiency: 70 },
-  { name: "FastAPI", logo: "https://skillicons.dev/icons?i=fastapi", category: "Backend", proficiency: 65 },
-  { name: "MongoDB", logo: "https://skillicons.dev/icons?i=mongodb", category: "Backend", proficiency: 70 },
-  { name: "Firebase", logo: "https://skillicons.dev/icons?i=firebase", category: "Backend", proficiency: 75 },
-  { name: "Flutter", logo: "https://skillicons.dev/icons?i=flutter", category: "Mobile", proficiency: 70 },
-  { name: "Dart", logo: "https://skillicons.dev/icons?i=dart", category: "Mobile", proficiency: 65 },
-  { name: "TensorFlow", logo: "https://skillicons.dev/icons?i=tensorflow", category: "AI/ML", proficiency: 60 },
-  { name: "Sci-Kit", logo: "https://skillicons.dev/icons?i=sklearn", category: "AI/ML", proficiency: 65 },
-  { name: "Java", logo: "https://skillicons.dev/icons?i=java", category: "AI/ML", proficiency: 55 },
-  { name: "PydanticAI", logo: "https://skillicons.dev/icons?i=python", category: "AI Frameworks", proficiency: 40 }, // Python related
-  { name: "Langchain", logo: "https://skillicons.dev/icons?i=python", category: "AI Frameworks", proficiency: 45 },
-  { name: "Langgraph", logo: "https://skillicons.dev/icons?i=python", category: "AI Frameworks", proficiency: 40 },
-  { name: "Langsmith", logo: "https://skillicons.dev/icons?i=python", category: "AI Frameworks", proficiency: 40 },
-  { name: "CrewAI", logo: "https://skillicons.dev/icons?i=python", category: "AI Frameworks", proficiency: 35 },
-  { name: "Autogen", logo: "https://skillicons.dev/icons?i=python", category: "AI Frameworks", proficiency: 35 },
-  { name: "Git", logo: "https://skillicons.dev/icons?i=git", category: "Tools", proficiency: 85 },
-  { name: "VS Code", logo: "https://skillicons.dev/icons?i=vscode", category: "Tools", proficiency: 90 },
-  { name: "Postman", logo: "https://skillicons.dev/icons?i=postman", category: "Tools", proficiency: 75 },
-  { name: "Figma", logo: "https://skillicons.dev/icons?i=figma", category: "Tools", proficiency: 70 },
-  { name: "Docker", logo: "https://skillicons.dev/icons?i=docker", category: "Tools", proficiency: 50 },
-  { name: "Linux", logo: "https://skillicons.dev/icons?i=linux", category: "Tools", proficiency: 60 },
-];
-
-interface Skill {
-  name: string;
-  logo: string;
-  category: string;
-  proficiency: number;
-}
+import { useContent, Skill } from "../context/ContentContext";
 
 const containerVariants = {
   hidden: {},
@@ -67,6 +23,15 @@ const itemVariants = {
 export const TechCarousel = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const { content } = useContent();
+  const { skills } = content;
+
+  // Group skills by category
+  const categories = ["Frontend", "Backend", "Mobile", "AI/ML", "AI Frameworks", "Tools"];
+  const groupedSkills = categories.reduce((acc, category) => {
+    acc[category] = skills.filter(skill => skill.category === category);
+    return acc;
+  }, {} as Record<string, Skill[]>);
 
   return (
     <section ref={ref} className="py-16 px-6 bg-black text-white">
@@ -84,12 +49,22 @@ export const TechCarousel = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containerVariants}
+          className="space-y-12"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-8">
-            {skills.map((skill, index) => (
-              <SkillCard key={index} skill={skill} index={index} />
-            ))}
-          </div>
+          {categories.map((category) => (
+            groupedSkills[category]?.length > 0 && (
+              <div key={category} className="space-y-6">
+                <h3 className="text-2xl font-semibold text-gray-300 border-b border-gray-800 pb-2">
+                  {category}
+                </h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-6">
+                  {groupedSkills[category].map((skill, index) => (
+                    <SkillCard key={`${category}-${index}`} skill={skill} index={index} />
+                  ))}
+                </div>
+              </div>
+            )
+          ))}
         </motion.div>
       </div>
     </section>
@@ -100,17 +75,20 @@ const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => {
   return (
     <motion.div
       variants={itemVariants}
-      className="flex flex-col items-center space-y-2 py-4 px-2"
+      className="flex flex-col items-center space-y-3 p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
     >
       <motion.img
         src={skill.logo}
         alt={skill.name}
-        className="h-10 w-10 object-contain filter hover:brightness-110"
+        className="h-12 w-12 object-contain filter hover:brightness-110"
         initial={{ scale: 0.8 }}
         animate={{ scale: 1 }}
         transition={{ delay: index * 0.05, duration: 0.5 }}
       />
-      <h4 className="text-xs font-medium text-center text-white/80">{skill.name}</h4>
+      <div className="text-center">
+        <h4 className="text-sm font-medium text-white/90">{skill.name}</h4>
+        {/* Optional: Show proficiency bar or percentage if desired, keeping it clean for now */}
+      </div>
     </motion.div>
   );
 };
