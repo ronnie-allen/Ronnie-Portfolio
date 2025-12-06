@@ -104,37 +104,31 @@
     },
     {
       "name": "PydanticAI",
-      "logo": "https://skillicons.dev/icons?i=python",
+      "logo": "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/pydanticai-color.png",
       "category": "AI Frameworks",
       "proficiency": 40
     },
     {
       "name": "Langchain",
-      "logo": "https://skillicons.dev/icons?i=python",
+      "logo": "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/langchain-color.png",
       "category": "AI Frameworks",
       "proficiency": 45
     },
     {
       "name": "Langgraph",
-      "logo": "https://skillicons.dev/icons?i=python",
+      "logo": "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/langgraph-color.png",
       "category": "AI Frameworks",
       "proficiency": 40
     },
     {
       "name": "Langsmith",
-      "logo": "https://skillicons.dev/icons?i=python",
+      "logo": "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/langsmith-color.png",
       "category": "AI Frameworks",
-      "proficiency": 40
+      "proficiency": 105
     },
     {
       "name": "CrewAI",
-      "logo": "https://skillicons.dev/icons?i=python",
-      "category": "AI Frameworks",
-      "proficiency": 35
-    },
-    {
-      "name": "Autogen",
-      "logo": "https://skillicons.dev/icons?i=python",
+      "logo": "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/crewai-color.png",
       "category": "AI Frameworks",
       "proficiency": 35
     },
@@ -173,6 +167,42 @@
       "logo": "https://skillicons.dev/icons?i=linux",
       "category": "Tools",
       "proficiency": 60
+    },
+    {
+      "name": "HuggingFace",
+      "logo": "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/huggingface-color.png",
+      "category": "Tools",
+      "proficiency": 100
+    },
+    {
+      "name": "Ollama",
+      "logo": "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/ollama.png",
+      "category": "AI/ML",
+      "proficiency": 100
+    },
+    {
+      "name": "GitHub",
+      "logo": "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/github.png",
+      "category": "Tools",
+      "proficiency": 65
+    },
+    {
+      "name": "N8N",
+      "logo": "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/n8n-color.png",
+      "category": "Tools",
+      "proficiency": 55
+    },
+    {
+      "name": "Gradio",
+      "logo": "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/gradio-color.png",
+      "category": "Frontend",
+      "proficiency": 88
+    },
+    {
+      "name": "Supabase",
+      "logo": "data:image/png;base64,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",
+      "category": "Backend",
+      "proficiency": 44
     }
   ],
   "projects": [
@@ -217,6 +247,12 @@
       "image": "src/assets/uniscan.png",
       "githubUrl": "https://github.com/ronnie-allen/UNISCAN-Face_recognition",
       "description": "This project implements a face recognition-based attendance system with barcode verification for IoT applications. It uses computer vision to recognize faces from a webcam feed and scans barcodes (QR codes) for verification, logging attendance timestamps to an Excel spreadsheet."
+    },
+    {
+      "name": "BlogRelay - Blog Writer Agent",
+      "image": "src/assets/blogrelay.png",
+      "githubUrl": "https://github.com/ronnie-allen/BlogRelay",
+      "description": "an agent designed to take a simple topic and turn it into a complete, polished blog through an end-to-end automated workflow.\nIt uses FastAPI, Mistral AI (via OpenRouter), a CrewAI-style agent architecture, and an interactive email-based review loop via the Gmail API."
     }
   ],
   "blogs": [
