@@ -1,20 +1,23 @@
-\documentclass[10pt]{article}
+\documentclass[10pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[margin=0.7in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[margin=0.5in]{geometry} % Reduced margin for one page
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{titlesec}
-\usepackage{parskip}
 
-% Compact Section Titles
-\titleformat{\section}{\bfseries\large}{}{0em}{}[\titlerule]
+% Formatting
+\pagestyle{empty}
+\raggedright
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.3em} % Reduced skip
 
-% Resume Itemize Environment
-\newenvironment{resumeitemize}{
-  \begin{itemize}[leftmargin=*, noitemsep, topsep=0pt]
-}{
-  \end{itemize}
-}
+% Section Formatting
+\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{8pt}{4pt} % Compact spacing
+
+% Custom Itemize
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=0pt}
 
 \begin{document}
 
@@ -22,76 +25,89 @@
 % Header
 %======================
 \begin{center}
-  \textbf{\LARGE Ronnie A Jeffrey} \\[0.5em]
-  \href{mailto:ronnieallen2005@gmail.com}{ronnieallen2005@gmail.com} \quad | \quad +91 99528 60468 \\[0.3em]
-  \href{https://www.linkedin.com/in/ronnie-a-jeffrey/}{linkedin.com/in/ronnie-a-jeffrey} \quad | \quad 
-  \href{https://github.com/ronnie-allen}{github.com/ronnie-allen} \quad | \quad 
-  \href{https://ronnie-a-jeffrey.tech}{ronnie-a-jeffrey.tech}
+    {\Huge \textbf{Ronnie A Jeffrey}} \\[0.3em]
+    \href{mailto:ronnieallen2005@gmail.com}{ronnieallen2005@gmail.com} \quad | \quad +91 99528 60468 \\[0.2em]
+    \href{https://www.linkedin.com/in/ronnie-a-jeffrey/}{linkedin.com/in/ronnie-a-jeffrey} \quad | \quad 
+    \href{https://github.com/ronnie-allen}{github.com/ronnie-allen} \quad | \quad 
+    \href{https://ronnie-a-jeffrey.tech}{ronnie-a-jeffrey.tech}
 \end{center}
 
+%======================
+\section{Education}
+%======================
+\textbf{Karunya Institute of Technology} \hfill Coimbatore, India \\
+B.Tech in Artificial Intelligence and Data Science \hfill May 2027
 
 %======================
-\section*{Education}
+\section{Experience}
 %======================
-\textbf{Karunya Institute of Technology}, Coimbatore, India \hfill \textit{May 2027} \\
-B.Tech in Artificial Intelligence and Data Science
-
-%======================
-\section*{Experience}
-%======================
-\textbf{AI and Software Developer} \hfill \textit{Jun 2025 – Present} \\
-\textit{CoreInsightsAI, Bangalore, India}
-\begin{resumeitemize}
+\textbf{CoreInsightsAI} \hfill Bangalore, India \\
+\textit{AI and Software Developer} \hfill Jun 2025 – Present
+\begin{itemize}
   \item Developed scalable applications in Next.js with integrated LLM-based automation.
   \item Worked on full-stack solutions, AI-driven features, and light DevOps workflows.
-\end{resumeitemize}
+\end{itemize}
 
-\textbf{Full Stack and Mobile App Trainee} \hfill \textit{Aug 2024 – Mar 2025} \\
-\textit{Karunya Innovative Design Studio (KIDS), Coimbatore}
-\begin{resumeitemize}
+\textbf{Karunya Innovative Design Studio (KIDS)} \hfill Coimbatore, India \\
+\textit{Full Stack and Mobile App Trainee} \hfill Aug 2024 – Mar 2025
+\begin{itemize}
   \item Built frontend interfaces using React.js and integrated APIs.
   \item Participated in backend development using Node.js for university platforms.
-\end{resumeitemize}
+\end{itemize}
 
-\textbf{Mobile App Developer Intern} \hfill \textit{Jun 2024 – Jul 2024} \\
-\textit{Nandha Infotech, Coimbatore}
-\begin{resumeitemize}
+\textbf{Nandha Infotech} \hfill Coimbatore, India \\
+\textit{Mobile App Developer Intern} \hfill Jun 2024 – Jul 2024
+\begin{itemize}
   \item Built Flutter-based mobile UIs for agriculture-focused applications.
   \item Integrated APIs and improved UX in real-time delivery apps.
-\end{resumeitemize}
+\end{itemize}
 
 %======================
-\section*{Skills}
+\section{Skills}
 %======================
-\textbf{Languages:} Python, Java, C, Dart, JavaScript \\
-\textbf{Frameworks/Tools:} React.js, Next,js, Tailwind CSS, ShadCN UI,Flutter, Git, Flask, FastAPI, TensorFlow, Keras, Scikit-learn, LangChain, LAngSmith, LangGraph, CrewAI,  \\
-\textbf{Other:} Machine Learning, Data Analysis, REST APIs, DevOps Basics, Gen-AI
+\textbf{Frontend:} HTML, CSS, JavaScript, TypeScript, React, Tailwind, Bootstrap, Gradio \\
+\textbf{Backend:} Node.js, Python, FastAPI, MongoDB, Firebase \\
+\textbf{Mobile:} Flutter, Dart \\
+\textbf{AI/ML:} TensorFlow, Sci-Kit, Java, Ollama, PydanticAI, Langchain, Langgraph, Langsmith, CrewAI \\
+\textbf{Tools:} Git, VS Code, Postman, Figma, Docker, Linux, HuggingFace, GitHub, N8N
 
 %======================
-\section*{Projects}
+\section{Projects}
 %======================
-\textbf{Mindkraft'25 – Event Website} \\
-Built full-featured event site with auth, payment, and user dashboard. \\
-\textit{TechStack: Python, TensorFlow, Scikit-learn}
-
-\textbf{Water Potability Prediction} \\
-Deployed ML model via Django; compared XGBoost, LSTM, Random Forest. \\
-\textit{TechStack: React.js, Django, ShadCN UI}
-
-\textbf{CropAI – Recommendation \& Yield Prediction API} \\
-Developed REST API for intelligent crop planning using ML. \\
-\textit{TechStack: Django, React.js, Scikit-learn}
+\textbf{MindKraft '25 - An Event Site} \\
+Full-featured event site with auth, payment, and user dashboard. \\
+\textit{Tech Stack: React, Node.js, Payment API}
 
 \textbf{Music Genre Classification with CNN} \\
-Built audio classifier with CNN using Librosa features. \\
-\textit{TechStack: Python, TensorFlow, Keras, Streamlit}
+Audio classifier using CNN and Librosa features to predict music genres. \\
+\textit{Tech Stack: Python, TensorFlow, Keras, Streamlit}
+
+\textbf{Water Potability Prediction} \\
+ML model deployed via Django comparing XGBoost, LSTM, and Random Forest. \\
+\textit{Tech Stack: React.js, Django, ShadCN UI}
+
+\textbf{Patient Monitoring System} \\
+AI-driven platform for tracking patients by analyzing lab reports. \\
+\textit{Tech Stack: AI, Web Technologies}
+
+\textbf{CropAI - Crop Recommendation \& Yield Prediction} \\
+ML system for crop planning and yield estimation using Random Forest. \\
+\textit{Tech Stack: Django, React.js, Scikit-learn}
+
+\textbf{UNISCAN - Smart Attendance System} \\
+Face recognition attendance system with barcode verification for IoT. \\
+\textit{Tech Stack: Computer Vision, IoT, Excel Integration}
+
+\textbf{BlogRelay - Blog Writer Agent} \\
+Agentic workflow to turn topics into polished blogs using LLMs. \\
+\textit{Tech Stack: FastAPI, Mistral AI, CrewAI, Gmail API}
 
 %======================
-\section*{Certifications}
+\section{Certifications}
 %======================
-Google CyberSecurity Specialization \hfill \textit{Jul 2024} \\
-Data Analytics Internship – YBI Foundation \hfill \textit{Sep 2024} \\
-CSS Skill Test – HackerRank \hfill \textit{Sep 2024} \\
-Java Programming Fundamentals – Infosys \hfill \textit{Sep 2024}
+\textbf{Google CyberSecurity Specialization} \hfill Jul 2024 \\
+\textbf{Data Analytics Internship} – YBI Foundation \hfill Sep 2024 \\
+\textbf{CSS Skill Test} – HackerRank \hfill Sep 2024 \\
+\textbf{Java Programming Fundamentals} – Infosys \hfill Sep 2024
 
 \end{document}
