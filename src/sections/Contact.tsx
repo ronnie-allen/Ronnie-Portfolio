@@ -166,7 +166,7 @@ export const Contact = () => {
           <h4 className="text-2xl font-medium mb-4 text-white">Follow me</h4>
           <div className="flex gap-5 flex-wrap text-2xl text-gray-400 ">
             <a
-              href="https://www.linkedin.com/in/ronnie-a-jeffrey-0901b22bb/"
+              href="https://www.linkedin.com/in/ronnie-a-jeffrey/"
               target="_blank"
               className="hover:text-[#0077b5] transition"
             >
@@ -187,7 +187,7 @@ export const Contact = () => {
               <FaInstagram />
             </a>
             <a
-              href="https://facebook.com/ronnie"
+              href="https://facebook.com/ronnie-allen"
               target="_blank"
               className="hover:text-blue-600 transition"
             >

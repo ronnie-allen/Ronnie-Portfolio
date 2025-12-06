@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FaArrowLeft, FaDownload, FaPlus, FaTrash, FaEdit } from "react-icons/fa";
 
 export const CMS = () => {
-    const { content, addSkill, updateSkill, deleteSkill, addProject, updateProject, deleteProject, addBlog, updateBlog, deleteBlog, exportData } = useContent();
+    const { content, addSkill, updateSkill, deleteSkill, addProject, updateProject, deleteProject, addBlog, updateBlog, deleteBlog, saveToProject } = useContent();
     const [activeTab, setActiveTab] = useState<"skills" | "projects" | "blogs">("skills");
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editingItem, setEditingItem] = useState<any>(null);
@@ -46,10 +46,10 @@ export const CMS = () => {
                     </Link>
                     <h1 className="text-3xl font-bold text-red-500">Content Management System</h1>
                     <button
-                        onClick={exportData}
+                        onClick={saveToProject}
                         className="flex items-center bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition"
                     >
-                        <FaDownload className="mr-2" /> Export JSON
+                        <FaDownload className="mr-2" /> Save to Project
                     </button>
                 </div>
 

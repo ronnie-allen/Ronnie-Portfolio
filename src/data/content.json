@@ -1,238 +1,244 @@
 {
-    "skills": [
-        {
-            "name": "HTML",
-            "logo": "https://skillicons.dev/icons?i=html",
-            "category": "Frontend",
-            "proficiency": 90
-        },
-        {
-            "name": "CSS",
-            "logo": "https://skillicons.dev/icons?i=css",
-            "category": "Frontend",
-            "proficiency": 85
-        },
-        {
-            "name": "JavaScript",
-            "logo": "https://skillicons.dev/icons?i=js",
-            "category": "Frontend",
-            "proficiency": 80
-        },
-        {
-            "name": "TypeScript",
-            "logo": "https://skillicons.dev/icons?i=ts",
-            "category": "Frontend",
-            "proficiency": 75
-        },
-        {
-            "name": "React",
-            "logo": "https://skillicons.dev/icons?i=react",
-            "category": "Frontend",
-            "proficiency": 85
-        },
-        {
-            "name": "Tailwind",
-            "logo": "https://skillicons.dev/icons?i=tailwind",
-            "category": "Frontend",
-            "proficiency": 80
-        },
-        {
-            "name": "Bootstrap",
-            "logo": "https://skillicons.dev/icons?i=bootstrap",
-            "category": "Frontend",
-            "proficiency": 70
-        },
-        {
-            "name": "Node.js",
-            "logo": "https://skillicons.dev/icons?i=nodejs",
-            "category": "Backend",
-            "proficiency": 75
-        },
-        {
-            "name": "Python",
-            "logo": "https://skillicons.dev/icons?i=python",
-            "category": "Backend",
-            "proficiency": 70
-        },
-        {
-            "name": "FastAPI",
-            "logo": "https://skillicons.dev/icons?i=fastapi",
-            "category": "Backend",
-            "proficiency": 65
-        },
-        {
-            "name": "MongoDB",
-            "logo": "https://skillicons.dev/icons?i=mongodb",
-            "category": "Backend",
-            "proficiency": 70
-        },
-        {
-            "name": "Firebase",
-            "logo": "https://skillicons.dev/icons?i=firebase",
-            "category": "Backend",
-            "proficiency": 75
-        },
-        {
-            "name": "Flutter",
-            "logo": "https://skillicons.dev/icons?i=flutter",
-            "category": "Mobile",
-            "proficiency": 70
-        },
-        {
-            "name": "Dart",
-            "logo": "https://skillicons.dev/icons?i=dart",
-            "category": "Mobile",
-            "proficiency": 65
-        },
-        {
-            "name": "TensorFlow",
-            "logo": "https://skillicons.dev/icons?i=tensorflow",
-            "category": "AI/ML",
-            "proficiency": 60
-        },
-        {
-            "name": "Sci-Kit",
-            "logo": "https://skillicons.dev/icons?i=sklearn",
-            "category": "AI/ML",
-            "proficiency": 65
-        },
-        {
-            "name": "Java",
-            "logo": "https://skillicons.dev/icons?i=java",
-            "category": "AI/ML",
-            "proficiency": 55
-        },
-        {
-            "name": "PydanticAI",
-            "logo": "https://skillicons.dev/icons?i=python",
-            "category": "AI Frameworks",
-            "proficiency": 40
-        },
-        {
-            "name": "Langchain",
-            "logo": "https://skillicons.dev/icons?i=python",
-            "category": "AI Frameworks",
-            "proficiency": 45
-        },
-        {
-            "name": "Langgraph",
-            "logo": "https://skillicons.dev/icons?i=python",
-            "category": "AI Frameworks",
-            "proficiency": 40
-        },
-        {
-            "name": "Langsmith",
-            "logo": "https://skillicons.dev/icons?i=python",
-            "category": "AI Frameworks",
-            "proficiency": 40
-        },
-        {
-            "name": "CrewAI",
-            "logo": "https://skillicons.dev/icons?i=python",
-            "category": "AI Frameworks",
-            "proficiency": 35
-        },
-        {
-            "name": "Autogen",
-            "logo": "https://skillicons.dev/icons?i=python",
-            "category": "AI Frameworks",
-            "proficiency": 35
-        },
-        {
-            "name": "Git",
-            "logo": "https://skillicons.dev/icons?i=git",
-            "category": "Tools",
-            "proficiency": 85
-        },
-        {
-            "name": "VS Code",
-            "logo": "https://skillicons.dev/icons?i=vscode",
-            "category": "Tools",
-            "proficiency": 90
-        },
-        {
-            "name": "Postman",
-            "logo": "https://skillicons.dev/icons?i=postman",
-            "category": "Tools",
-            "proficiency": 75
-        },
-        {
-            "name": "Figma",
-            "logo": "https://skillicons.dev/icons?i=figma",
-            "category": "Tools",
-            "proficiency": 70
-        },
-        {
-            "name": "Docker",
-            "logo": "https://skillicons.dev/icons?i=docker",
-            "category": "Tools",
-            "proficiency": 50
-        },
-        {
-            "name": "Linux",
-            "logo": "https://skillicons.dev/icons?i=linux",
-            "category": "Tools",
-            "proficiency": 60
-        }
-    ],
-    "projects": [
-        {
-            "name": "MindKraft '25 - An Event Site",
-            "description": "Worked in building a Entire Fully functional event site for our University, with functionalities of Authentication,Authorization and integrating Payment API",
-            "image": "/src/assets/Mk.png",
-            "githubUrl": "https://github.com/dharshan-kumarj/Mindkraft25_Frontend"
-        },
-        {
-            "name": "Music Genre Classification with CNN",
-            "description": "A machine learning model for classifying music genres based on audio features. This repository contains the code and resources for building, training, and evaluating the model using TensorFlow and scikit-learn. It aims to predict the genre of music from raw audio data, providing a practical solution for music classification.",
-            "image": "/src/assets/Music-genre.png",
-            "githubUrl": "https://github.com/ronnie-allen/Music-Genre-Classification-with-CNN"
-        },
-        {
-            "name": "Water Potability Prediction with Ensemble Learning",
-            "description": "A simple weather forecasting application built with React. Displays current weather data using an API and shows a 7-day forecast with hourly intervals.",
-            "image": "/src/assets/potability.png",
-            "githubUrl": "https://github.com/ronnie-allen/Water-Predictor-Backend"
-        },
-        {
-            "name": "Patient Monitoring System for Hospitals",
-            "description": "The Patient Monitoring System is an AI-driven platform designed to help hospitals efficiently track and monitor their patients by analyzing lab reports. Hospitals can upload patient lab reports through an admin portal, and the system will automatically retrieve relevant data to generate a detailed report.",
-            "image": "/src/assets/PMS.png",
-            "githubUrl": "https://github.com/ronnie-allen/PMS-Intel_OneAPI_Hackathon"
-        },
-        {
-            "name": "Hoodigo - An E-Commerce website ",
-            "description": "Hoodigo is a frontend website project built using HTML, CSS, JavaScript, and Bootstrap, aimed at practicing and showcasing modern web design skills. It features responsive layouts, interactive components, and a clean design structure.",
-            "image": "/src/assets/Hoodigo.png",
-            "githubUrl": "https://github.com/ronnie-allen/hoodigo-website"
-        },
-        {
-            "name": "CropAI - Crop Recommendation & Yield Prediction System",
-            "description": "This project uses machine learning models to help farmers make smarter agricultural decisions. It predicts the best crop to grow based on soil, weather, and environmental factors, and estimates the expected yield in tons per hectare. We used two real-world datasets and trained Random Forest models — one for crop classification and another for yield regression.",
-            "image": "/src/assets/CropAI.png",
-            "githubUrl": "https://github.com/ronnie-allen/Crop-and-Yield-Prediction"
-        }
-    ],
-    "blogs": [
-        {
-            "title": "Why Every Developer Should Learn Markdown (And Why Many Still Struggle With It)",
-            "url": "https://medium.com/@ronnieallen2005/why-every-developer-should-learn-markdown-and-why-many-still-struggle-with-it-fac9c8e91ccc",
-            "image": "https://miro.medium.com/v2/resize:fit:720/format:webp/1*5XvsEOBDs9sKu17k3mX0rg.gif"
-        },
-        {
-            "title": "The Rise of AI Agents — How They Work and What’s Next",
-            "url": "https://medium.com/@ronnieallen2005/the-rise-of-ai-agents-how-they-work-and-whats-next-8cba469abfd0",
-            "image": "https://miro.medium.com/v2/resize:fit:720/format:webp/0*G2QEzYpAoIAyRyRw"
-        },
-        {
-            "title": "Can O3 Mini Compete? A Brutally Honest Look at DeepSeek R1’s Power",
-            "url": "https://medium.com/@ronnieallen2005/is-deepseek-r1-the-ultimate-reasoning-machine-over-o3-mini-e740e8a92bcb",
-            "image": "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*cWNER1Bf85H2nrvNVJoLcg.png"
-        },
-        {
-            "title": "A Beginner’s Guide to Installing and Exploring ORB-SLAM3: Unlocking the Power of Real-Time Localization & Mapping",
-            "url": "https://medium.com/@ronnieallen2005/a-beginners-guide-to-installing-and-exploring-orb-slam3-0ef6b0f7e3fc",
-            "image": "https://miro.medium.com/v2/resize:fit:720/format:webp/1*qJMDatUhkbIh4LSuKCUsyg.png"
-        }
-    ]
+  "skills": [
+    {
+      "name": "HTML",
+      "logo": "https://skillicons.dev/icons?i=html",
+      "category": "Frontend",
+      "proficiency": 90
+    },
+    {
+      "name": "CSS",
+      "logo": "https://skillicons.dev/icons?i=css",
+      "category": "Frontend",
+      "proficiency": 85
+    },
+    {
+      "name": "JavaScript",
+      "logo": "https://skillicons.dev/icons?i=js",
+      "category": "Frontend",
+      "proficiency": 80
+    },
+    {
+      "name": "TypeScript",
+      "logo": "https://skillicons.dev/icons?i=ts",
+      "category": "Frontend",
+      "proficiency": 75
+    },
+    {
+      "name": "React",
+      "logo": "https://skillicons.dev/icons?i=react",
+      "category": "Frontend",
+      "proficiency": 85
+    },
+    {
+      "name": "Tailwind",
+      "logo": "https://skillicons.dev/icons?i=tailwind",
+      "category": "Frontend",
+      "proficiency": 80
+    },
+    {
+      "name": "Bootstrap",
+      "logo": "https://skillicons.dev/icons?i=bootstrap",
+      "category": "Frontend",
+      "proficiency": 70
+    },
+    {
+      "name": "Node.js",
+      "logo": "https://skillicons.dev/icons?i=nodejs",
+      "category": "Backend",
+      "proficiency": 75
+    },
+    {
+      "name": "Python",
+      "logo": "https://skillicons.dev/icons?i=python",
+      "category": "Backend",
+      "proficiency": 70
+    },
+    {
+      "name": "FastAPI",
+      "logo": "https://skillicons.dev/icons?i=fastapi",
+      "category": "Backend",
+      "proficiency": 65
+    },
+    {
+      "name": "MongoDB",
+      "logo": "https://skillicons.dev/icons?i=mongodb",
+      "category": "Backend",
+      "proficiency": 70
+    },
+    {
+      "name": "Firebase",
+      "logo": "https://skillicons.dev/icons?i=firebase",
+      "category": "Backend",
+      "proficiency": 75
+    },
+    {
+      "name": "Flutter",
+      "logo": "https://skillicons.dev/icons?i=flutter",
+      "category": "Mobile",
+      "proficiency": 70
+    },
+    {
+      "name": "Dart",
+      "logo": "https://skillicons.dev/icons?i=dart",
+      "category": "Mobile",
+      "proficiency": 65
+    },
+    {
+      "name": "TensorFlow",
+      "logo": "https://skillicons.dev/icons?i=tensorflow",
+      "category": "AI/ML",
+      "proficiency": 60
+    },
+    {
+      "name": "Sci-Kit",
+      "logo": "https://skillicons.dev/icons?i=sklearn",
+      "category": "AI/ML",
+      "proficiency": 65
+    },
+    {
+      "name": "Java",
+      "logo": "https://skillicons.dev/icons?i=java",
+      "category": "AI/ML",
+      "proficiency": 55
+    },
+    {
+      "name": "PydanticAI",
+      "logo": "https://skillicons.dev/icons?i=python",
+      "category": "AI Frameworks",
+      "proficiency": 40
+    },
+    {
+      "name": "Langchain",
+      "logo": "https://skillicons.dev/icons?i=python",
+      "category": "AI Frameworks",
+      "proficiency": 45
+    },
+    {
+      "name": "Langgraph",
+      "logo": "https://skillicons.dev/icons?i=python",
+      "category": "AI Frameworks",
+      "proficiency": 40
+    },
+    {
+      "name": "Langsmith",
+      "logo": "https://skillicons.dev/icons?i=python",
+      "category": "AI Frameworks",
+      "proficiency": 40
+    },
+    {
+      "name": "CrewAI",
+      "logo": "https://skillicons.dev/icons?i=python",
+      "category": "AI Frameworks",
+      "proficiency": 35
+    },
+    {
+      "name": "Autogen",
+      "logo": "https://skillicons.dev/icons?i=python",
+      "category": "AI Frameworks",
+      "proficiency": 35
+    },
+    {
+      "name": "Git",
+      "logo": "https://skillicons.dev/icons?i=git",
+      "category": "Tools",
+      "proficiency": 85
+    },
+    {
+      "name": "VS Code",
+      "logo": "https://skillicons.dev/icons?i=vscode",
+      "category": "Tools",
+      "proficiency": 90
+    },
+    {
+      "name": "Postman",
+      "logo": "https://skillicons.dev/icons?i=postman",
+      "category": "Tools",
+      "proficiency": 75
+    },
+    {
+      "name": "Figma",
+      "logo": "https://skillicons.dev/icons?i=figma",
+      "category": "Tools",
+      "proficiency": 70
+    },
+    {
+      "name": "Docker",
+      "logo": "https://skillicons.dev/icons?i=docker",
+      "category": "Tools",
+      "proficiency": 50
+    },
+    {
+      "name": "Linux",
+      "logo": "https://skillicons.dev/icons?i=linux",
+      "category": "Tools",
+      "proficiency": 60
+    }
+  ],
+  "projects": [
+    {
+      "name": "MindKraft '25 - An Event Site",
+      "description": "Worked in building a Entire Fully functional event site for our University, with functionalities of Authentication,Authorization and integrating Payment API",
+      "image": "/src/assets/Mk.png",
+      "githubUrl": "https://github.com/dharshan-kumarj/Mindkraft25_Frontend"
+    },
+    {
+      "name": "Music Genre Classification with CNN",
+      "description": "A machine learning model for classifying music genres based on audio features. This repository contains the code and resources for building, training, and evaluating the model using TensorFlow and scikit-learn. It aims to predict the genre of music from raw audio data, providing a practical solution for music classification.",
+      "image": "/src/assets/Music-genre.png",
+      "githubUrl": "https://github.com/ronnie-allen/Music-Genre-Classification-with-CNN"
+    },
+    {
+      "name": "Water Potability Prediction with Ensemble Learning",
+      "description": "A simple weather forecasting application built with React. Displays current weather data using an API and shows a 7-day forecast with hourly intervals.",
+      "image": "/src/assets/potability.png",
+      "githubUrl": "https://github.com/ronnie-allen/Water-Predictor-Backend"
+    },
+    {
+      "name": "Patient Monitoring System for Hospitals",
+      "description": "The Patient Monitoring System is an AI-driven platform designed to help hospitals efficiently track and monitor their patients by analyzing lab reports. Hospitals can upload patient lab reports through an admin portal, and the system will automatically retrieve relevant data to generate a detailed report.",
+      "image": "/src/assets/PMS.png",
+      "githubUrl": "https://github.com/ronnie-allen/PMS-Intel_OneAPI_Hackathon"
+    },
+    {
+      "name": "Hoodigo - An E-Commerce website ",
+      "description": "Hoodigo is a frontend website project built using HTML, CSS, JavaScript, and Bootstrap, aimed at practicing and showcasing modern web design skills. It features responsive layouts, interactive components, and a clean design structure.",
+      "image": "/src/assets/Hoodigo.png",
+      "githubUrl": "https://github.com/ronnie-allen/hoodigo-website"
+    },
+    {
+      "name": "CropAI - Crop Recommendation & Yield Prediction System",
+      "description": "This project uses machine learning models to help farmers make smarter agricultural decisions. It predicts the best crop to grow based on soil, weather, and environmental factors, and estimates the expected yield in tons per hectare. We used two real-world datasets and trained Random Forest models — one for crop classification and another for yield regression.",
+      "image": "/src/assets/CropAI.png",
+      "githubUrl": "https://github.com/ronnie-allen/Crop-and-Yield-Prediction"
+    },
+    {
+      "name": "UNISCAN - Smart Attendance System",
+      "image": "src/assets/uniscan.png",
+      "githubUrl": "https://github.com/ronnie-allen/UNISCAN-Face_recognition",
+      "description": "This project implements a face recognition-based attendance system with barcode verification for IoT applications. It uses computer vision to recognize faces from a webcam feed and scans barcodes (QR codes) for verification, logging attendance timestamps to an Excel spreadsheet."
+    }
+  ],
+  "blogs": [
+    {
+      "title": "Why Every Developer Should Learn Markdown (And Why Many Still Struggle With It)",
+      "url": "https://medium.com/@ronnieallen2005/why-every-developer-should-learn-markdown-and-why-many-still-struggle-with-it-fac9c8e91ccc",
+      "image": "https://miro.medium.com/v2/resize:fit:720/format:webp/1*5XvsEOBDs9sKu17k3mX0rg.gif"
+    },
+    {
+      "title": "The Rise of AI Agents — How They Work and What’s Next",
+      "url": "https://medium.com/@ronnieallen2005/the-rise-of-ai-agents-how-they-work-and-whats-next-8cba469abfd0",
+      "image": "https://miro.medium.com/v2/resize:fit:720/format:webp/0*G2QEzYpAoIAyRyRw"
+    },
+    {
+      "title": "Can O3 Mini Compete? A Brutally Honest Look at DeepSeek R1’s Power",
+      "url": "https://medium.com/@ronnieallen2005/is-deepseek-r1-the-ultimate-reasoning-machine-over-o3-mini-e740e8a92bcb",
+      "image": "https://miro.medium.com/v2/resize:fit:1100/format:webp/1*cWNER1Bf85H2nrvNVJoLcg.png"
+    },
+    {
+      "title": "A Beginner’s Guide to Installing and Exploring ORB-SLAM3: Unlocking the Power of Real-Time Localization & Mapping",
+      "url": "https://medium.com/@ronnieallen2005/a-beginners-guide-to-installing-and-exploring-orb-slam3-0ef6b0f7e3fc",
+      "image": "https://miro.medium.com/v2/resize:fit:720/format:webp/1*qJMDatUhkbIh4LSuKCUsyg.png"
+    }
+  ]
 }

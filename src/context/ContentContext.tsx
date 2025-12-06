@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode } from 'react';
 import initialContent from '../data/content.json';
 
 // Define types for our data
@@ -41,12 +41,21 @@ interface ContentContextType {
     updateBlog: (index: number, blog: Blog) => void;
     deleteBlog: (index: number) => void;
     exportData: () => void;
+    saveToProject: () => Promise<void>;
 }
 
 const ContentContext = createContext<ContentContextType | undefined>(undefined);
 
 export const ContentProvider = ({ children }: { children: ReactNode }) => {
-    const [content, setContent] = useState<ContentData>(initialContent);
+    const [content, setContent] = useState<ContentData>(() => {
+        const saved = localStorage.getItem('portfolio_content');
+        return saved ? JSON.parse(saved) : initialContent;
+    });
+
+    React.useEffect(() => {
+        localStorage.setItem('portfolio_content', JSON.stringify(content));
+        console.log('Content updated and saved to localStorage:', content);
+    }, [content]);
 
     const updateContent = (newContent: ContentData) => {
         setContent(newContent);
@@ -54,6 +63,7 @@ export const ContentProvider = ({ children }: { children: ReactNode }) => {
 
     // Helper functions for Skills
     const addSkill = (skill: Skill) => {
+        console.log('Adding skill:', skill);
         setContent(prev => ({ ...prev, skills: [...prev.skills, skill] }));
     };
 
@@ -124,6 +134,38 @@ export const ContentProvider = ({ children }: { children: ReactNode }) => {
         linkElement.click();
     };
 
+    const saveToProject = async () => {
+        try {
+            // Check if the File System Access API is supported
+            if ('showSaveFilePicker' in window) {
+                const options = {
+                    suggestedName: 'content.json',
+                    types: [{
+                        description: 'JSON File',
+                        accept: { 'application/json': ['.json'] },
+                    }],
+                };
+
+                // @ts-ignore - showSaveFilePicker is not yet in standard lib dom
+                const handle = await window.showSaveFilePicker(options);
+                const writable = await handle.createWritable();
+                await writable.write(JSON.stringify(content, null, 2));
+                await writable.close();
+                alert('Content saved successfully! You can now commit the changes.');
+            } else {
+                // Fallback for browsers that don't support the API
+                exportData();
+                alert('Your browser does not support direct file saving. The file has been downloaded. Please replace src/data/content.json manually.');
+            }
+        } catch (error) {
+            // Ignore abort errors (user cancelled)
+            if ((error as Error).name !== 'AbortError') {
+                console.error('Error saving content:', error);
+                alert('Failed to save content.');
+            }
+        }
+    };
+
     return (
         <ContentContext.Provider value={{
             content,
@@ -131,7 +173,8 @@ export const ContentProvider = ({ children }: { children: ReactNode }) => {
             addSkill, updateSkill, deleteSkill,
             addProject, updateProject, deleteProject,
             addBlog, updateBlog, deleteBlog,
-            exportData
+            exportData,
+            saveToProject
         }}>
             {children}
         </ContentContext.Provider>
