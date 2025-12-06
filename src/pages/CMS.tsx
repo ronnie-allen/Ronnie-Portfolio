@@ -60,8 +60,8 @@ export const CMS = () => {
                             key={tab}
                             onClick={() => setActiveTab(tab)}
                             className={`pb-2 px-4 capitalize font-medium transition ${activeTab === tab
-                                    ? "text-red-500 border-b-2 border-red-500"
-                                    : "text-gray-400 hover:text-white"
+                                ? "text-red-500 border-b-2 border-red-500"
+                                : "text-gray-400 hover:text-white"
                                 }`}
                         >
                             {tab}
@@ -123,7 +123,7 @@ export const CMS = () => {
                     onClose={closeModal}
                     type={activeTab}
                     initialData={editingItem}
-                    onSubmit={(data) => {
+                    onSubmit={(data: Skill | Project | Blog) => {
                         if (activeTab === "skills") {
                             editingIndex !== null ? updateSkill(editingIndex, data as Skill) : addSkill(data as Skill);
                         } else if (activeTab === "projects") {
