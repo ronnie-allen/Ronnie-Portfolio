@@ -209,48 +209,48 @@
     {
       "name": "MindKraft '25 - An Event Site",
       "description": "Worked in building a Entire Fully functional event site for our University, with functionalities of Authentication,Authorization and integrating Payment API",
-      "image": "/src/assets/Mk.png",
+      "image": "/Mk.png",
       "githubUrl": "https://github.com/dharshan-kumarj/Mindkraft25_Frontend"
     },
     {
       "name": "Music Genre Classification with CNN",
       "description": "A machine learning model for classifying music genres based on audio features. This repository contains the code and resources for building, training, and evaluating the model using TensorFlow and scikit-learn. It aims to predict the genre of music from raw audio data, providing a practical solution for music classification.",
-      "image": "/src/assets/Music-genre.png",
+      "image": "/Music-genre.png",
       "githubUrl": "https://github.com/ronnie-allen/Music-Genre-Classification-with-CNN"
     },
     {
       "name": "Water Potability Prediction with Ensemble Learning",
       "description": "A simple weather forecasting application built with React. Displays current weather data using an API and shows a 7-day forecast with hourly intervals.",
-      "image": "/src/assets/potability.png",
+      "image": "/potability.png",
       "githubUrl": "https://github.com/ronnie-allen/Water-Predictor-Backend"
     },
     {
       "name": "Patient Monitoring System for Hospitals",
       "description": "The Patient Monitoring System is an AI-driven platform designed to help hospitals efficiently track and monitor their patients by analyzing lab reports. Hospitals can upload patient lab reports through an admin portal, and the system will automatically retrieve relevant data to generate a detailed report.",
-      "image": "/src/assets/PMS.png",
+      "image": "/PMS.png",
       "githubUrl": "https://github.com/ronnie-allen/PMS-Intel_OneAPI_Hackathon"
     },
     {
       "name": "Hoodigo - An E-Commerce website ",
       "description": "Hoodigo is a frontend website project built using HTML, CSS, JavaScript, and Bootstrap, aimed at practicing and showcasing modern web design skills. It features responsive layouts, interactive components, and a clean design structure.",
-      "image": "/src/assets/Hoodigo.png",
+      "image": "/Hoodigo.png",
       "githubUrl": "https://github.com/ronnie-allen/hoodigo-website"
     },
     {
       "name": "CropAI - Crop Recommendation & Yield Prediction System",
       "description": "This project uses machine learning models to help farmers make smarter agricultural decisions. It predicts the best crop to grow based on soil, weather, and environmental factors, and estimates the expected yield in tons per hectare. We used two real-world datasets and trained Random Forest models — one for crop classification and another for yield regression.",
-      "image": "/src/assets/CropAI.png",
+      "image": "/CropAI.png",
       "githubUrl": "https://github.com/ronnie-allen/Crop-and-Yield-Prediction"
     },
     {
       "name": "UNISCAN - Smart Attendance System",
-      "image": "src/assets/uniscan.png",
+      "image": "/uniscan.png",
       "githubUrl": "https://github.com/ronnie-allen/UNISCAN-Face_recognition",
       "description": "This project implements a face recognition-based attendance system with barcode verification for IoT applications. It uses computer vision to recognize faces from a webcam feed and scans barcodes (QR codes) for verification, logging attendance timestamps to an Excel spreadsheet."
     },
     {
       "name": "BlogRelay - Blog Writer Agent",
-      "image": "src/assets/blogrelay.png",
+      "image": "/blogrelay.png",
       "githubUrl": "https://github.com/ronnie-allen/BlogRelay",
       "description": "an agent designed to take a simple topic and turn it into a complete, polished blog through an end-to-end automated workflow.\nIt uses FastAPI, Mistral AI (via OpenRouter), a CrewAI-style agent architecture, and an interactive email-based review loop via the Gmail API."
     }
