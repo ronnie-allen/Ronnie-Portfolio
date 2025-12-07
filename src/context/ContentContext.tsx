@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import initialContent from '../data/content.json';
 
 // Define types for our data
@@ -47,13 +47,27 @@ interface ContentContextType {
 const ContentContext = createContext<ContentContextType | undefined>(undefined);
 
 export const ContentProvider = ({ children }: { children: ReactNode }) => {
-    const [content, setContent] = useState<ContentData>(() => {
-        const saved = localStorage.getItem('portfolio_content');
-        return saved ? JSON.parse(saved) : initialContent;
-    });
+    const [content, setContent] = useState<ContentData>(initialContent);
 
-    React.useEffect(() => {
-        localStorage.setItem('portfolio_content', JSON.stringify(content));
+    // Load content from localStorage or fallback to initial data
+    useEffect(() => {
+        const storedContent = localStorage.getItem('portfolioContent');
+        const storedVersion = localStorage.getItem('contentVersion');
+        const currentVersion = '1.1'; // Increment this to force update
+
+        if (storedContent && storedVersion === currentVersion) {
+            setContent(JSON.parse(storedContent));
+        } else {
+            // If no content or version mismatch (stale data), use initialContent
+            setContent(initialContent);
+            localStorage.setItem('portfolioContent', JSON.stringify(initialContent));
+            localStorage.setItem('contentVersion', currentVersion);
+        }
+    }, []);
+
+    // Save content to localStorage whenever it changes
+    useEffect(() => {
+        localStorage.setItem('portfolioContent', JSON.stringify(content));
         console.log('Content updated and saved to localStorage:', content);
     }, [content]);
 
