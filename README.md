@@ -20,7 +20,7 @@ A modern, fully-responsive portfolio website showcasing my skills as a Full-Stac
 - **Projects**: Featured projects (expandable section for future additions)
 - **Blog**: Integration with Medium articles (dynamic content display)
 - **Statistics**: Real-time GitHub stats and social media metrics
-- **Contact**: Functional contact form with EmailJS integration
+- **Contact**: Functional contact form with Resend integration
 
 ### 🎨 Design Features
 - 🌙 **Dark Theme**: Consistent dark aesthetic with gradient accents
@@ -31,7 +31,7 @@ A modern, fully-responsive portfolio website showcasing my skills as a Full-Stac
 
 ### 🔧 Technical Features
 - 📊 **Live GitHub Integration**: Displays real-time repository stats
-- 📧 **Functional Contact Form**: EmailJS-powered contact with validation
+- 📧 **Functional Contact Form**: Resend-powered contact with validation
 - 📝 **Form Validation**: Client-side validation with error handling
 - 🎨 **Progressive Web App Ready**: Service worker ready for PWA deployment
 - 🔍 **SEO Optimized**: Meta tags, Open Graph, and Twitter Card support
@@ -51,7 +51,7 @@ A modern, fully-responsive portfolio website showcasing my skills as a Full-Stac
 
 ### Forms & Validation
 - **React Hook Form** - Performant forms with easy validation
-- **EmailJS** - Contact form email delivery
+- **Resend** - Contact form email delivery via Express API
 
 ### Development
 - **ESLint** - Code linting
@@ -77,14 +77,19 @@ A modern, fully-responsive portfolio website showcasing my skills as a Full-Stac
    npm install
    ```
 
-3. **Set up EmailJS (optional for contact form)**
-   - Create a free account at [EmailJS](https://www.emailjs.com/)
-   - Replace the placeholder keys in `src/sections/Contact.tsx`:
-
-
-4. **Start development server**
+3. **Set up Resend (required for contact form)**
+   - Create a free account at [Resend](https://resend.com)
+   - Create an API key in the Resend dashboard
+   - Copy `.env.example` to `.env` and add your API key:
    ```bash
-   npm run dev
+   cp .env.example .env
+   # Edit .env with your RESEND_API_KEY
+   ```
+
+
+4. **Start development server** (frontend + API)
+   ```bash
+   npm run dev:all
    ```
 
 5. **Open in browser**
@@ -94,24 +99,27 @@ A modern, fully-responsive portfolio website showcasing my skills as a Full-Stac
 
 ### Development
 ```bash
-npm run dev          # Start development server
+npm run dev          # Start Vite frontend only (API proxied)
+npm run dev:api      # Start Express API server only
+npm run dev:all      # Start both frontend + API (recommended)
 npm run build        # Build for production
-npm run preview      # Preview production build
+npm run preview      # Preview production build locally
 npm run lint         # Run ESLint
 ```
 
-### Build & Deployment
+### Production
 ```bash
-npm run build        # Creates optimized build in /dist
-npm run preview      # Test production build locally
+npm run build        # Build frontend into /dist
+npm start            # Start Express server (serves /dist + API)
 ```
 
 ## 📁 Project Structure
 
 ```
+server/
+├── index.js           # Express server (API + static serve)
 src/
-├── components/          # Reusable components
-├── sections/           # Main page sections
+├── sections/          # Main page sections
 │   ├── About.tsx       # About section
 │   ├── Blog.tsx        # Blog integration
 │   ├── Contact.tsx     # Contact form & info
@@ -148,23 +156,24 @@ The portfolio uses a dark theme with red and cyan accents:
 
 ## 🚀 Deployment
 
-### Using Vercel (Recommended)
-1. Connect your GitHub repository to Vercel
-2. Deploy with automatic builds on push
-3. Custom domain support included
+### Using Render (Recommended)
+1. Push your repository to GitHub
+2. On [Render Dashboard](https://dashboard.render.com), create a **New Web Service**
+3. Connect your GitHub repository
+4. Configure:
 
-### Manual Deployment
-```bash
-npm run build
-# Upload dist/ folder to your hosting service
-```
+| Field | Value |
+|---|---|
+| **Build Command** | `npm install && npm run build` |
+| **Start Command** | `npm start` |
+| **Environment** | Add `RESEND_API_KEY` and `CONTACT_EMAIL` |
 
 ### Environment Variables
-Create `.env.local` for sensitive data:
+Create `.env` for local development (see `.env.example`):
 ```bash
-EMAILJS_SERVICE_ID=your_service_id
-EMAILJS_TEMPLATE_ID=your_template_id
-EMAILJS_PUBLIC_KEY=your_public_key
+RESEND_API_KEY=re_xxxxxxxxxxxx
+CONTACT_EMAIL=ronnieallen2005@gmail.com
+PORT=3001
 ```
 
 ## 🤝 Contributing

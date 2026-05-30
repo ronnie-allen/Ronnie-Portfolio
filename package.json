@@ -5,15 +5,18 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:api": "node server/index.js",
+    "dev:all": "concurrently \"npm run dev\" \"npm run dev:api\"",
     "build": "tsc -b && vite build",
+    "start": "node server/index.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
     "body-parser": "^2.2.1",
     "concurrently": "^9.2.1",
     "cors": "^2.8.5",
+    "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "framer-motion": "^12.10.5",
     "lucide-react": "^0.509.0",
@@ -26,6 +29,7 @@
     "react-simple-typewriter": "^5.0.1",
     "react-slick": "^0.30.3",
     "react-typed": "^2.0.12",
+    "resend": "^6.12.4",
     "slick-carousel": "^1.8.1",
     "swiper": "^11.2.6"
   },

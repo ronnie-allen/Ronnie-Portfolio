@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
 import {
   FaLinkedin,
@@ -30,22 +29,25 @@ export const Contact = () => {
   const onSubmit = async (data: any) => {
     setIsSubmitting(true);
     try {
-      await emailjs.send(
-        "service_vrif9mm", // Replace with your EmailJS service ID
-        "template_g5znja3", // Replace with your EmailJS template ID
-        {
-          from_name: data.name,
-          from_email: data.email,
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
           message: data.message,
-          to_name: "Ronnie A Jeffrey",
-          to_email: "ronnieallen2005@gmail.com",
-        },
-        "z_jiKb_kmS8sjJp6c" // Replace with your EmailJS public key
-      );
+        }),
+      });
+
+      if (!response.ok) {
+        const err = await response.json();
+        throw new Error(err.error || "Failed to send message");
+      }
+
       toast.success("Message sent successfully!");
       reset();
     } catch (error) {
-      console.error("EmailJS error:", error);
+      console.error("Contact error:", error);
       toast.error("Failed to send message. Please try again.");
     } finally {
       setIsSubmitting(false);
