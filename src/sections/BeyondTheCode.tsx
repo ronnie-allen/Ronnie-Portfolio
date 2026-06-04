@@ -44,6 +44,20 @@ const slides: Slide[] = [
   },
 ];
 
+const photoAlt: Record<string, string> = {
+  "/club-1.jpg": "AI Club workshop session",
+  "/club-2.jpg": "Students collaborating at AI Club",
+  "/club-3.jpg": "AI Club group photo",
+  "/hackathon-1.jpg": "Hackathon event in progress",
+  "/hackathon-2.jpg": "Team presenting at hackathon",
+  "/music-1.jpg": "Choir training session",
+  "/music-2.jpg": "Vocal practice with choir",
+  "/music-3.jpg": "Music performance rehearsal",
+  "/music-4.jpg": "Choir group harmony session",
+  "/music-5.png": "Music notation and practice",
+  "/award-1.jpg": "Recognition award ceremony",
+};
+
 function PhotoGrid({ photos, onPhotoClick }: { photos: string[]; onPhotoClick: (src: string) => void }) {
   const cols = Math.min(photos.length, 3);
 
@@ -55,7 +69,7 @@ function PhotoGrid({ photos, onPhotoClick }: { photos: string[]; onPhotoClick: (
           className={`relative overflow-hidden rounded-lg bg-white/5 cursor-pointer group ${photos.length === 1 ? "h-96" : "aspect-video"}`}
           onClick={() => onPhotoClick(src)}
         >
-          <img src={src} alt="" className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+          <img src={src} alt={photoAlt[src] || "Activity photo"} className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
         </div>
       ))}
     </div>
@@ -213,7 +227,7 @@ export const BeyondTheCode = () => {
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
               src={lightboxSrc}
-              alt=""
+              alt={photoAlt[lightboxSrc] || "Enlarged activity photo"}
               className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             />

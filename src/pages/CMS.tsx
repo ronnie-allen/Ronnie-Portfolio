@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useContent, Skill, Project, Blog } from "../context/ContentContext";
 import { Link } from "react-router-dom";
 import { FaArrowLeft, FaDownload, FaPlus, FaTrash, FaEdit } from "react-icons/fa";
@@ -37,6 +38,11 @@ export const CMS = () => {
     };
 
     return (
+        <>
+        <Helmet>
+            <title>CMS Admin - Ronnie A Jeffrey</title>
+            <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
         <div className="min-h-screen bg-black text-white p-8 font-inter">
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
@@ -136,6 +142,7 @@ export const CMS = () => {
                 />
             )}
         </div>
+        </>
     );
 };
 
@@ -169,7 +176,6 @@ const Modal = ({ isOpen, onClose, type, initialData, onSubmit }: any) => {
         formData.forEach((value, key) => {
             data[key] = value;
         });
-        // Handle number conversion for proficiency
         if (data.proficiency) data.proficiency = Number(data.proficiency);
         onSubmit(data);
     };

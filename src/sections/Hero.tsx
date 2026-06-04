@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import { FaCode, FaMobileAlt, FaRobot, FaBrain, FaMusic } from "react-icons/fa";
@@ -5,6 +6,11 @@ import RonPic from "../assets/ra1.png";
 
 export const Hero = () => {
   return (
+    <>
+    <Helmet>
+      <title>Ronnie A Jeffrey - Full-Stack Developer & AI Enthusiast</title>
+      <meta name="description" content="AI & Data Science student building intelligent apps, winning hackathons, and mentoring the next generation of builders. Explore projects in ML, agentic AI, and full-stack development." />
+    </Helmet>
     <section className="relative text-white h-screen w-full overflow-hidden flex flex-col justify-between">
       {/* Bible Verse */}
       <div className="absolute top-10 sm:top-20 left-1/2 transform -translate-x-1/2 z-50 font-mono font-semibold text-xs sm:text-sm md:text-base text-center sm:text-left md:text-center px-4 sm:px-6 md:px-8 w-full">
@@ -77,5 +83,6 @@ export const Hero = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
