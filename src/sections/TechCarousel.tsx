@@ -1,94 +1,109 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { useContent, Skill } from "../context/ContentContext";
+import { useState, useMemo, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useContent } from "../context/ContentContext";
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: "easeOut" }
-  }
+const CATEGORY_COLORS: Record<string, string> = {
+  Frontend: "#EF4444",
+  Backend: "#06B6D4",
+  Mobile: "#22C55E",
+  "AI/ML": "#A855F7",
+  "AI Frameworks": "#F59E0B",
+  Tools: "#3B82F6",
 };
 
 export const TechCarousel = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
   const { content } = useContent();
   const { skills } = content;
+  const [activeCategory, setActiveCategory] = useState("All");
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Group skills by category
-  const categories = ["Frontend", "Backend", "Mobile", "AI/ML", "AI Frameworks", "Tools"];
-  const groupedSkills = categories.reduce((acc, category) => {
-    acc[category] = skills.filter(skill => skill.category === category);
-    return acc;
-  }, {} as Record<string, Skill[]>);
+  const categories = useMemo(() => ["All", "Frontend", "Backend", "Mobile", "AI/ML", "AI Frameworks", "Tools"], []);
+
+  const filteredSkills = useMemo(() => {
+    if (activeCategory === "All") return skills;
+    return skills.filter((s) => s.category === activeCategory);
+  }, [skills, activeCategory]);
+
+  const handleCategoryClick = (category: string) => {
+    setActiveCategory(category);
+  };
 
   return (
-    <section ref={ref} className="py-16 px-6 bg-black text-white">
+    <section className="py-16 px-4 sm:px-6 bg-black text-white">
       <div className="max-w-7xl mx-auto">
         <motion.h2
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-5xl font-bold text-center mb-16 text-red-500"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl sm:text-4xl font-bold text-center mb-10 text-red-500"
         >
           Technologies & Skills
         </motion.h2>
 
-        <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={containerVariants}
-          className="space-y-12"
-        >
-          {categories.map((category) => (
-            groupedSkills[category]?.length > 0 && (
-              <div key={category} className="space-y-6">
-                <h3 className="text-2xl font-semibold text-gray-300 border-b border-gray-800 pb-2">
-                  {category}
-                </h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-6">
-                  {groupedSkills[category].map((skill, index) => (
-                    <SkillCard key={`${category}-${index}`} skill={skill} index={index} />
-                  ))}
-                </div>
-              </div>
-            )
-          ))}
+        {/* Category pills */}
+        <div ref={scrollRef} className="flex gap-2 overflow-x-auto pb-4 mb-8 scrollbar-hide justify-start lg:justify-center">
+          {categories.map((category) => {
+            const isActive = activeCategory === category;
+            const color = category === "All" ? "#ffffff" : CATEGORY_COLORS[category];
+
+            return (
+              <motion.button
+                key={category}
+                onClick={() => handleCategoryClick(category)}
+                className="relative shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors"
+                style={{
+                  backgroundColor: isActive ? `${color}20` : "rgba(255,255,255,0.05)",
+                  color: isActive ? color : "rgba(255,255,255,0.6)",
+                }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {isActive && (
+                  <motion.div
+                    layoutId="active-pill"
+                    className="absolute inset-0 rounded-full"
+                    style={{ border: `1px solid ${color}40` }}
+                    transition={{ type: "spring", stiffness: 500, damping: 35 }}
+                  />
+                )}
+                {category}
+              </motion.button>
+            );
+          })}
+        </div>
+
+        {/* Skill grid */}
+        <motion.div layout className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
+          <AnimatePresence mode="popLayout">
+            {filteredSkills.map((skill) => {
+              const color = CATEGORY_COLORS[skill.category] || "#ffffff";
+
+              return (
+                <motion.div
+                  key={skill.name}
+                  layout
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="flex flex-col items-center gap-3 p-4 sm:p-5 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.07] hover:border-white/20 transition-colors group"
+                  style={{ borderLeftColor: color, borderLeftWidth: 2 }}
+                >
+                  <img
+                    src={skill.logo}
+                    alt={skill.name}
+                    className="h-10 w-10 sm:h-12 sm:w-12 object-contain group-hover:scale-110 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                  <span className="text-xs sm:text-sm font-medium text-white/80 text-center leading-tight">
+                    {skill.name}
+                  </span>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
         </motion.div>
       </div>
     </section>
-  );
-};
-
-const SkillCard = ({ skill, index }: { skill: Skill; index: number }) => {
-  return (
-    <motion.div
-      variants={itemVariants}
-      className="flex flex-col items-center space-y-3 p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors"
-    >
-      <motion.img
-        src={skill.logo}
-        alt={skill.name}
-        className="h-12 w-12 object-contain filter hover:brightness-110"
-        initial={{ scale: 0.8 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: index * 0.05, duration: 0.5 }}
-      />
-      <div className="text-center">
-        <h4 className="text-sm font-medium text-white/90">{skill.name}</h4>
-        {/* Optional: Show proficiency bar or percentage if desired, keeping it clean for now */}
-      </div>
-    </motion.div>
   );
 };
