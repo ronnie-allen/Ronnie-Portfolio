@@ -32,10 +32,19 @@ const experiences = [
   {
     id: 4,
     type: "Internship",
-    title: "Software Developer Intern",
+    title: "AI & DevOps Intern",
     company: "CoreInsightsAI, Bangalore",
-    duration: "June 2025 - Present",
+    duration: "June 2025 - Jan 2026",
     description: "Contributing to AI-powered software solutions. Focus on developing scalable applications, implementing AI algorithms, and working on healthcare technology projects. Working on real-time applications and collaborating with cross-functional teams and clients.",
+    icon: FaBriefcase,
+  },
+   {
+    id: 5,
+    type: "Internship",
+    title: "Software Developer Intern",
+    company: "FlickAI, Bangalore",
+    duration: "Feb 2026 - Present",
+    description: "Building a Financial AI SaaS product from the ground up, architecting core features and preparing the platform for production deployment. Developing scalable backend services, implementing AI-driven financial analysis, and collaborating on end-to-end product delivery.",
     icon: FaBriefcase,
   },
 ];
