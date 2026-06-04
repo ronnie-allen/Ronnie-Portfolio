@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface Slide {
@@ -44,63 +44,27 @@ const slides: Slide[] = [
   },
 ];
 
-function PhotoGrid({ photos }: { photos: string[] }) {
-  const [types, setTypes] = useState<Record<number, string>>({});
-  const typesRef = useRef<Record<number, string>>({});
-
-  const cols = photos.length === 1 ? 1 : Math.min(photos.length, 3);
-  const baseHeight = cols === 1 ? 360 : 200;
-  const gap = 12;
-
-  const handleLoad = useCallback((i: number, e: React.SyntheticEvent<HTMLImageElement>) => {
-    const ratio = e.currentTarget.naturalWidth / e.currentTarget.naturalHeight;
-    let type = "square";
-    if (ratio > 1.4) type = "landscape";
-    else if (ratio < 0.75) type = "portrait";
-
-    if (typesRef.current[i] !== type) {
-      typesRef.current = { ...typesRef.current, [i]: type };
-      setTypes({ ...typesRef.current });
-    }
-  }, []);
+function PhotoGrid({ photos, onPhotoClick }: { photos: string[]; onPhotoClick: (src: string) => void }) {
+  const cols = Math.min(photos.length, 3);
 
   return (
-    <div
-      className="grid gap-3 w-full"
-      style={{
-        gridTemplateColumns: `repeat(${cols}, 1fr)`,
-        gridAutoRows: `${baseHeight}px`,
-        gridAutoFlow: "dense",
-      }}
-    >
-      {photos.map((src, i) => {
-        const type = types[i];
-        const colSpan = type === "landscape" && cols >= 3 ? "col-span-2" : "";
-        const rowSpan = type === "portrait" ? "row-span-2" : "";
-        const h = type === "portrait" ? baseHeight * 2 + gap : baseHeight;
-
-        return (
-          <div
-            key={i}
-            className={`relative overflow-hidden rounded-lg bg-white/5 ${colSpan} ${rowSpan}`}
-            style={{ height: h }}
-          >
-            <img
-              src={src}
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover"
-              loading="lazy"
-              onLoad={(e) => handleLoad(i, e)}
-            />
-          </div>
-        );
-      })}
+    <div className="grid gap-3 w-full" style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}>
+      {photos.map((src, i) => (
+        <div
+          key={i}
+          className={`relative overflow-hidden rounded-lg bg-white/5 cursor-pointer group ${photos.length === 1 ? "h-96" : "aspect-video"}`}
+          onClick={() => onPhotoClick(src)}
+        >
+          <img src={src} alt="" className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" loading="lazy" />
+        </div>
+      ))}
     </div>
   );
 }
 
 export const BeyondTheCode = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
@@ -134,6 +98,15 @@ export const BeyondTheCode = () => {
 
   const slide = slides[activeIndex];
 
+  useEffect(() => {
+    if (!lightboxSrc) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightboxSrc(null);
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [lightboxSrc]);
+
   return (
     <section id="beyond-code" className="min-h-screen flex flex-col bg-black text-white">
       {/* Title */}
@@ -151,7 +124,7 @@ export const BeyondTheCode = () => {
 
       {/* Carousel */}
       <div className="flex-1 flex items-center justify-center px-4 sm:px-8 lg:px-16 py-4">
-        <div className="w-full max-w-5xl relative" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+        <div className="w-full relative" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}
@@ -162,7 +135,7 @@ export const BeyondTheCode = () => {
               className="rounded-xl bg-white/[0.03] border border-white/[0.06] overflow-hidden"
             >
               <div className="p-4 sm:p-6">
-                <PhotoGrid photos={slide.photos} />
+                <PhotoGrid photos={slide.photos} onPhotoClick={setLightboxSrc} />
               </div>
 
               <div className="px-6 sm:px-8 pb-8">
@@ -214,6 +187,40 @@ export const BeyondTheCode = () => {
           {activeIndex + 1} / {slides.length}
         </p>
       </div>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightboxSrc && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xl"
+            onClick={() => setLightboxSrc(null)}
+          >
+            <motion.img
+              key={lightboxSrc}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+              src={lightboxSrc}
+              alt=""
+              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button
+              onClick={() => setLightboxSrc(null)}
+              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-all"
+            >
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
