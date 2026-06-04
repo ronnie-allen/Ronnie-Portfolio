@@ -97,6 +97,13 @@ export const BeyondTheCode = () => {
   );
 
   const slide = slides[activeIndex];
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(goNext, 5000);
+    return () => clearInterval(interval);
+  }, [isPaused, goNext]);
 
   useEffect(() => {
     if (!lightboxSrc) return;
@@ -124,7 +131,7 @@ export const BeyondTheCode = () => {
 
       {/* Carousel */}
       <div className="flex-1 flex items-center justify-center px-4 sm:px-8 lg:px-16 py-4">
-        <div className="w-full relative" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+        <div className="w-full relative" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}
