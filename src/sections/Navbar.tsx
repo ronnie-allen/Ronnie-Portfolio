@@ -18,6 +18,7 @@ const Navbar = () => {
       <div className="space-x-6 mr-8 hidden md:flex items-center">
         {/* Navbar links */}
         <a href="#about" className="text-white hover:text-red-400 transition duration-300">About</a>
+        <a href="#beyond-code" className="text-white hover:text-red-400 transition duration-300">Leadership</a>
         <a href="#projects" className="text-white hover:text-red-400 transition duration-300">Projects</a>
         <a href="#contact" className="text-white hover:text-red-400 transition duration-300">Contact</a>
 
@@ -38,6 +39,7 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="absolute top-0 left-0 right-0 bg-transparent backdrop-blur-lg p-6 md:hidden flex flex-col items-center space-y-4 mt-16">
           <a href="#about" className="text-white hover:text-red-400 transition duration-300" onClick={() => setIsMenuOpen(false)}>About</a>
+          <a href="#beyond-code" className="text-white hover:text-red-400 transition duration-300" onClick={() => setIsMenuOpen(false)}>Leadership</a>
           <a href="#projects" className="text-white hover:text-red-400 transition duration-300" onClick={() => setIsMenuOpen(false)}>Projects</a>
           <a href="#contact" className="text-white hover:text-red-400 transition duration-300" onClick={() => setIsMenuOpen(false)}>Contact</a>
 

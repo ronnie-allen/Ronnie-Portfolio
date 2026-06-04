@@ -5,6 +5,7 @@ import { Contact } from "./sections/Contact";
 import { Footer } from "./sections/Footer";
 import { TechCarousel } from "./sections/TechCarousel";
 import { About } from "./sections/About";
+import { BeyondTheCode } from "./sections/BeyondTheCode";
 import { Experience } from "./sections/Experience";
 import Navbar from "./sections/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -34,6 +35,10 @@ function Portfolio() {
 
         <div className="z-10 relative mt-10 md:mt-20" id="about">
           <About />
+        </div>
+
+        <div className="z-10 relative mt-10 md:mt-20">
+          <BeyondTheCode />
         </div>
 
         <div className="z-10 relative mt-10 md:mt-20">
