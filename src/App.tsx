@@ -11,6 +11,8 @@ import Navbar from "./sections/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ContentProvider } from "./context/ContentContext";
 import { CMS } from "./pages/CMS";
+import { NotFound } from "./pages/NotFound";
+import { ErrorBoundary } from "./components/ErrorBoundary";
 
 function Portfolio() {
   return (
@@ -25,40 +27,40 @@ function Portfolio() {
         <Navbar />
 
         {/* Main Sections with Spacing */}
-        <div className="z-10 relative mt-20 md:mt-0"> {/* Adjust margin-top for mobile */}
-          <Hero />
+        <div className="z-10 relative mt-20 md:mt-0">
+          <ErrorBoundary><Hero /></ErrorBoundary>
         </div>
 
         <div className="z-10 relative mt-10 md:mt-20">
-          <TechCarousel />
+          <ErrorBoundary><TechCarousel /></ErrorBoundary>
         </div>
 
         <div className="z-10 relative mt-10 md:mt-20" id="about">
-          <About />
+          <ErrorBoundary><About /></ErrorBoundary>
         </div>
 
         <div className="z-10 relative mt-10 md:mt-20">
-          <BeyondTheCode />
+          <ErrorBoundary><BeyondTheCode /></ErrorBoundary>
         </div>
 
         <div className="z-10 relative mt-10 md:mt-20">
-          <Experience />
+          <ErrorBoundary><Experience /></ErrorBoundary>
         </div>
 
         <div className="z-10 relative mt-10 md:mt-20" id="projects">
-          <Projects />
+          <ErrorBoundary><Projects /></ErrorBoundary>
         </div>
 
         <div className="z-10 relative mt-10 md:mt-20">
-          <Blog />
+          <ErrorBoundary><Blog /></ErrorBoundary>
         </div>
 
         <div className="z-10 relative mt-10 md:mt-20" id="contact">
-          <Contact />
+          <ErrorBoundary><Contact /></ErrorBoundary>
         </div>
 
         <div className="z-10 relative mt-10 md:mt-20">
-          <Footer />
+          <ErrorBoundary><Footer /></ErrorBoundary>
         </div>
       </div>
     </div>
@@ -72,6 +74,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Portfolio />} />
           <Route path="/cms" element={<CMS />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </ContentProvider>

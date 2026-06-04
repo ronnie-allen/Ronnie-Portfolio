@@ -16,9 +16,9 @@ export const Blog = () => {
 
       {/* Blog Cards */}
       <div className="grid md:grid-cols-4 gap-8">
-        {blogs.map((post, index) => (
+        {blogs.map((post) => (
           <a
-            key={index}
+            key={post.title}
             href={post.url}
             target="_blank"
             rel="noopener noreferrer"

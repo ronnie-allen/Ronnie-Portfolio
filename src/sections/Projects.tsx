@@ -12,9 +12,9 @@ export const Projects = () => {
         Projects
       </h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project, index) => (
+        {projects.map((project) => (
           <div
-            key={index}
+            key={project.name}
             className="bg-[#0e0e0e] rounded-xl shadow-lg hover:shadow-red-600 transition duration-300 flex flex-col overflow-hidden"
           >
             {/* Project Image */}

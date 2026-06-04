@@ -90,7 +90,7 @@ export const CMS = () => {
                     <div className="space-y-4">
                         {activeTab === "skills" && content.skills.map((skill, index) => (
                             <ListItem
-                                key={index}
+                                key={skill.name}
                                 title={skill.name}
                                 subtitle={skill.category}
                                 image={skill.logo}
@@ -100,7 +100,7 @@ export const CMS = () => {
                         ))}
                         {activeTab === "projects" && content.projects.map((project, index) => (
                             <ListItem
-                                key={index}
+                                key={project.name}
                                 title={project.name}
                                 subtitle={project.description.substring(0, 100) + "..."}
                                 image={project.image}
@@ -110,7 +110,7 @@ export const CMS = () => {
                         ))}
                         {activeTab === "blogs" && content.blogs.map((blog, index) => (
                             <ListItem
-                                key={index}
+                                key={blog.title}
                                 title={blog.title}
                                 subtitle={blog.url}
                                 image={blog.image}
