@@ -15,7 +15,7 @@ import {
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { SiHuggingface } from "react-icons/si";
-import CV from "../assets/RonnieAJeffrey_CV.pdf";
+import CV from "../assets/Ronnie_A_Jeffrey_Jul_26.pdf";
 
 export const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
