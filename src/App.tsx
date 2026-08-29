@@ -11,6 +11,7 @@ import Navbar from "./sections/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ContentProvider } from "./context/ContentContext";
 import { CMS } from "./pages/CMS";
+import { Me } from "./pages/Me";
 import { NotFound } from "./pages/NotFound";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 
@@ -73,6 +74,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Portfolio />} />
+          <Route path="/me" element={<Me />} />
           <Route path="/cms" element={<CMS />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

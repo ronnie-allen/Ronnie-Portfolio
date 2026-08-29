@@ -1,16 +1,7 @@
 import { motion } from "framer-motion";
-import { FaBriefcase, FaUserGraduate, FaLaptopCode } from "react-icons/fa";
+import { FaBriefcase, FaLaptopCode } from "react-icons/fa";
 
 const experiences = [
-  {
-    id: 1,
-    type: "education",
-    title: "B.Tech in Artificial Intelligence & Data Science",
-    company: "Karunya Institute of Technology and Sciences",
-    duration: "2021 - Present",
-    description: "Currently pursuing undergraduate studies in AI & DS, where I've developed a strong foundation in machine learning, data analytics, and computer science fundamentals. Engaged in various projects and internships.",
-    icon: FaUserGraduate,
-  },
   {
     id: 2,
     type: "Internship",
@@ -43,8 +34,17 @@ const experiences = [
     type: "Internship",
     title: "Software Developer Intern",
     company: "FlickAI, Bangalore",
-    duration: "Feb 2026 - Present",
-    description: "Building a Financial AI SaaS product from the ground up, architecting core features and preparing the platform for production deployment. Developing scalable backend services, implementing AI-driven financial analysis, and collaborating on end-to-end product delivery.",
+    duration: "Feb 2026 - Jun 2026",
+    description: "Built a Financial AI SaaS product from the ground up, architecting core features and preparing the platform for production deployment. Developed scalable backend services, implemented AI-driven financial analysis, and collaborated on end-to-end product delivery.",
+    icon: FaBriefcase,
+  },
+  {
+    id: 6,
+    type: "Internship",
+    title: "AI Intern",
+    company: "SISA Information Security, Bangalore",
+    duration: "Aug 2026 - Present",
+    description: "Working on AI-driven cybersecurity solutions, developing intelligent threat detection systems, and contributing to security analytics platforms. Collaborating with cross-functional teams to build and deploy ML models for real-time security analysis.",
     icon: FaBriefcase,
   },
 ];
